@@ -25,4 +25,13 @@ myArray.shift = function (array) {
     return undefined;
   }
 };
+
+myArray.unshift = function (array, elem) {
+  array.length = array.length+1;
+  for (var ii = array.length -1; ii >0; ii--){
+    array[ii] = array[ii-1];
+  }
+  array[0] = elem;
+  return array.length;
+};
 module.exports = myArray;

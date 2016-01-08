@@ -48,4 +48,16 @@ describe ('array reimplemented', function() {
     var shiftedElem = myArray.shift(array);
     assert.equal(shiftedElem, 11, 'it fails to return the first element in the array');
   });
+
+  //unshift method
+  it('should return the length + 1', function() {
+    var array = [1,2,3];
+    var newLength = myArray.unshift(array,4);
+    assert.equal(newLength, 4, 'it fails to return the correct length');
+  });
+  it('should add the new element to the beginning of the array and still keep all the older elements', function() {
+    var array = [1,2,3];
+    myArray.unshift(array, 0);
+    assert.deepEqual(array, [0,1,2,3], 'it fails');
+  });
 });
