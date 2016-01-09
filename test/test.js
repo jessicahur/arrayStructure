@@ -1,5 +1,6 @@
 var assert = require('chai').assert;
-var myArray = require('../array.js');
+var myArray = require('../array');
+var uniqueItems = require('../unique');
 
 describe ('array reimplemented', function() {
   //push method
@@ -59,5 +60,32 @@ describe ('array reimplemented', function() {
     var array = [1,2,3];
     myArray.unshift(array, 0);
     assert.deepEqual(array, [0,1,2,3], 'it fails');
+  });
+});
+
+//Testing for unique items
+describe ('unique items testing', function() {
+  it('should returns an array of unique numbers', function() {
+    var array = [1,1,3,4,5,5,7];
+    var result = uniqueItems(array);
+    assert.deepEqual(result, [1,3,4,5,7], 'it fails to pick unique numbers');
+  });
+  it('should returns an array of unique strings', function() {
+    var array = ['a', 'b', 'b'];
+    var result = uniqueItems(array);
+    assert.deepEqual(result, ['a', 'b'], 'it fails to pick unique strings');
+  });
+  it('should returns an array of unique strings and numbers', function() {
+    var array = ['a', 'a', 'b', '1', 1, 2, 1];
+    var result = uniqueItems(array);
+    assert.deepEqual(result, [1,2,'1','a','b'], 'it fails to pick unique strings mixed with numbers');
+  });
+  it('should returns an array of unique objects, strings and numbers', function() {
+    var obj1 = {};
+    var obj2 = obj1;
+    var array = [obj1, obj2, 1, 1, '1', '1'];
+    var result = uniqueItems(array);
+    console.log(result);
+    assert.deepEqual(result, [1, '1', obj1.toString()], 'it fails to pick unique obj, strings and numbers');
   });
 });

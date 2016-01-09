@@ -1,7 +1,7 @@
 var myArray = Object.create(null);
 
 myArray.push = function (array, elem) {
-  var lastIndex = array.length.toString();
+  var lastIndex = array.length;
   array[lastIndex] = elem;
   return array.length;
 };
