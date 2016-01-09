@@ -13,8 +13,8 @@ function uniqueItems (array) {
     }
   }
   var numbers = Object.keys(nums);
-  for (var ii = 0; ii < numbers.length; ii++){
-    numbers[ii] = parseFloat(numbers[ii]);
+  for (var jj = 0; jj < numbers.length; jj++){
+    numbers[jj] = parseFloat(numbers[jj]);
   }
   var result = numbers.concat(Object.keys(myObj));
   return result;

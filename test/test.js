@@ -1,6 +1,7 @@
 var assert = require('chai').assert;
 var myArray = require('../array');
 var uniqueItems = require('../unique');
+var mostCommonChar = require('../frequency');
 
 describe ('array reimplemented', function() {
   //push method
@@ -86,6 +87,16 @@ describe ('unique items testing', function() {
     var array = [obj1, obj2, 1, 1, '1', '1'];
     var result = uniqueItems(array);
     console.log(result);
-    assert.deepEqual(result, [1, '1', obj1.toString()], 'it fails to pick unique obj, strings and numbers');
+    assert.equal(result[2], obj1,'same obj');
+    // assert.deepEqual(result, [1, '1', obj1], 'it fails to pick unique obj, strings and numbers');
+  });
+});
+
+  //Testing for character frequency
+describe ('most common letter', function() {
+  it('should return o as the most common letter', function() {
+    var array = ['book', 'dog', 'cat', 'box'];
+    var commonChar = mostCommonChar(array);
+    assert.equal(commonChar, 'o', 'it fails to pick the most common character');
   });
 });
