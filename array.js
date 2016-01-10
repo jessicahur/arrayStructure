@@ -7,7 +7,7 @@ myArray.push = function (array, elem) {
 };
 
 myArray.pop = function (array) {
- var lastIndex = (array.length-1).toString();
+ var lastIndex = (array.length-1);
  var poppedItem = array[lastIndex];
  array.length = array.length-1;
  return poppedItem;
